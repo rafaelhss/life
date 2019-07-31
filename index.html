@@ -13,14 +13,25 @@
         <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
       preload></audio>
                 
-        <img id="fundo1" src="https://cdn.glitch.com/bccc21ff-9343-4776-a306-ca386c94f221%2FbutcherHead.jpg?v=1564604213883">
-        <img id="fundo2" src="https://cdn.glitch.com/bccc21ff-9343-4776-a306-ca386c94f221%2Fhead.jpg?v=1564604253725">
+        <img id="fundo1" src="https://raw.githubusercontent.com/rafaelhss/life/master/butcherKnife.png">
+        <img id="butcherBody" src="https://raw.githubusercontent.com/rafaelhss/life/master/butcherBody.png">
+        <img id="butcherHead" src="https://raw.githubusercontent.com/rafaelhss/life/master/butcherHead.jpg">
+        <img id="wood1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYvAKE37StLCmylQcda8aCYeFfkIPPvQwjLFHpoUI7vdB6h5LA">
+        <img id="wood2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT06PETcp0LhZvbME8qDJq2-QcIMnhwayXQdb2spO4k_cOj5IN6pQ">
+        <img id="wood3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh939HUhaTjcQYa5Iov3iknS7YlilJoFajkrbdNY11IEbozM3k">
+        <img id="wood4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYvAKE37StLCmylQcda8aCYeFfkIPPvQwjLFHpoUI7vdB6h5LA">
+        <img id="floor" src="https://images.unsplash.com/photo-1551101674-0ac7887568cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80">
+        <img id="knife" src="https://raw.githubusercontent.com/rafaelhss/life/master/butcherKnife.png">
+        <img id="head" src="https://raw.githubusercontent.com/rafaelhss/life/master/head2.jpg">
+        <img id="body" src="https://raw.githubusercontent.com/rafaelhss/life/master/cowBody2.png">
+        
+        
         
       </a-assets>
 
      
-      <a-entity position="0 0 0" id="cursor" animation="property: position; to: 0 0 -30; dur: 30000; easing: linear;">  
-      <!-- <a-entity position="0 0 -27"> -->
+       <a-entity position="0 0 0" id="cursor" animation="property: position; to: 0 0 -30; dur: 30000; easing: linear;">   
+       <!-- <a-entity position="0 0 -30"> -->
         <a-camera id="camera">
             <a-cursor fuse="true" fusetimeout="1000" color="#4CC3D9" >
                 <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.5 0.5 0.5" to="1 1 1"></a-animation>
@@ -29,7 +40,7 @@
         </a-camera>
       </a-entity>
       
-      <a-sky src="#fundo2" animation="property: src; to: 'https://cdn.glitch.com/bccc21ff-9343-4776-a306-ca386c94f221%2FbutcherHead.jpg'; delay:500; dur: 300; easing: linear;"></a-sky>
+      <a-sky id="sky" src="#fundo1" ></a-sky>
       
 
       
