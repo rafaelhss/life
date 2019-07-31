@@ -15,7 +15,8 @@
       </a-assets>
 
      
-      <a-entity position="0 0 0" id="cursor" animation="property: position; to: 0 0 -30; dur: 30000; easing: linear;"> 
+  <!--    <a-entity position="0 0 0" id="cursor" animation="property: position; to: 0 0 -30; dur: 30000; easing: linear;"> -->
+      <a-entity position="0 0 -27">
         <a-camera id="camera">
             <a-cursor fuse="true" fusetimeout="1000" color="#4CC3D9" >
                 <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.5 0.5 0.5" to="1 1 1"></a-animation>
@@ -31,28 +32,28 @@
       
       <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"></a-sky>
       
-<a-box position="0 1.6 0" animation="property: position; to: 5 1.6 0; dur: 1500; easing: linear"></a-box>
+      <a-box position="0 1.6 0" animation="property: position; to: 5 1.6 0; dur: 1500; easing: linear"></a-box>
 
       
-      <a-box class="butcher" position="-7 1.2 -30" rotation="0 0 0" color="#4CC3D9" shadow height="3"
+      <a-box class="butcher" position="-7 1.2 -32" rotation="0 0 0" color="#4CC3D9" shadow height="2"
              material=" src: https://raw.githubusercontent.com/rafaelhss/life/master/butcherBody.png "></a-box>
       <a-cylinder class="knife" position="-7.3 1.2 -29.5" rotation="0 0 0" color="#CCCCCC" shadow height="2" width="0.3" depth="0.3"
              material=" src: https://raw.githubusercontent.com/rafaelhss/life/master/butcherKnife.png "></a-cylinder>
       <a-plane position="-6 0 0" rotation="-90 0 0" width="2" height="60" color="#333333" shadow></a-plane>
       
-      <a-box class="butcher" position="-3.5 1.2 -30" rotation="0 0 0" color="#4CC3D9" shadow height="3"></a-box>
+      <a-box class="butcher" position="-3.5 1.2 -32" rotation="0 0 0" color="#4CC3D9" shadow height="3"></a-box>
       <a-box class="knife" position="-3.8 1.2 -29.5" rotation="0 0 0" color="#CCCCCC" shadow height="2" width="0.3" depth="0.3"></a-box>
       <a-plane position="-3 0 0" rotation="-90 0 0" width="2" height="60" color="#333333" shadow></a-plane>
       
-      <a-box class="butcher" position="0 1.2 -30" rotation="0 0 0" color="#4CC3D9" shadow height="3"></a-box>
-      <a-box class="knife" position="-0.3 1.2 -29.5" rotation="0 0 0" color="#CCCCCC" shadow height="2" width="0.3" depth="0.3"></a-box>
+      <a-sphere class="butcherHead" position="0 2.7 -32" rotation="0 0 0" color="#4CC3D9" shadow radius="0.5"></a-sphere>
+      <a-cone class="butcher" position="0 1.2 -32" rotation="0 0 0" color="#4CC3D9" shadow height="2" radius-top="0.2" radius-bottom="0.5"></a-cone>
       <a-plane position="0 0 0" rotation="-90 0 0" width="2" height="60" color="#333333" shadow></a-plane>
       
-      <a-box class="butcher" position="3.5 1.2 -30" rotation="0 0 0" color="#4CC3D9" shadow height="3"></a-box>
+      <a-box class="butcher" position="3.5 1.2 -32" rotation="0 0 0" color="#4CC3D9" shadow height="3"></a-box>
       <a-box class="knife" position="3.8 1.2 -29.5" rotation="0 0 0" color="#CCCCCC" shadow height="2" width="0.3" depth="0.3"></a-box>
       <a-plane position="3 0 0" rotation="-90 0 0" width="2" height="60" color="#333333" shadow></a-plane>
       
-      <a-box class="butcher" position="7 1.2 -30" rotation="0 0 0" color="#4CC3D9" shadow height="3"></a-box>
+      <a-box class="butcher" position="7 1.2 -32" rotation="0 0 0" color="#4CC3D9" shadow height="3"></a-box>
       <a-box class="knife" position="7.3 1.2 -29.5" rotation="0 0 0" color="#CCCCCC" shadow height="2" width="0.3" depth="0.3"></a-box>
       <a-plane position="6 0 0" rotation="-90 0 0" width="2" height="60" color="#333333" shadow></a-plane>
       
