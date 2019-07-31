@@ -2,7 +2,11 @@
 
 var count = 0;
 var deathZLimit = -29;
+var track = [-7, -3.5, 3.5, 7];
+var animalDelay = 8000;
   
+  
+
 function walkElement(element, step){
     var position = element.getAttribute("position");
     position.z = position.z + step;
@@ -32,35 +36,76 @@ console.log("teteghbgggggge");
 }
 
 
-function addknife(){
+function addButcher(track){
       
+  console.log("addbucjefr")
   var sceneEl = document.querySelector('a-scene');
-  var entityEl = document.createElement('a-cone');
+  var butcherBody = document.createElement('a-cone');
   
-  entityEl.setAttribute('class',"knife");
-  entityEl.setAttribute('position',"-0.5 1.9 -31.5");
-  entityEl.setAttribute('rotation',"0 0 0");
-  entityEl.setAttribute('color',"#DDDDDD");
-  entityEl.setAttribute('material',"src: https://raw.githubusercontent.com/rafaelhss/life/master/cowBody2.png");
+  butcherBody.setAttribute('class',"butcher");
+  butcherBody.setAttribute('position',track + " 1.2 -32");
+  butcherBody.setAttribute('rotation',"0 0 0");
+  butcherBody.setAttribute('color',"#DDDDDD");
+  butcherBody.setAttribute('material',"src: https://raw.githubusercontent.com/rafaelhss/life/master/cowBody2.png");
   
-  entityEl.setAttribute('height',"2");
-  entityEl.setAttribute('radius-top',"0.09");
-  entityEl.setAttribute('radius-bottom',"0.02");
-  entityEl.setAttribute('depth',"0.3");
-  entityEl.setAttribute('egments-radial',"3");
+  butcherBody.setAttribute('height',"2");
+  butcherBody.setAttribute('radius-top',"0.2");
+  butcherBody.setAttribute('radius-bottom',"0.5");
+  
+  butcherBody.setAttribute('shadow',"true");
+  
+  sceneEl.appendChild(butcherBody);
+  
+  var butcherHead = document.createElement('a-sphere');
+  
+  butcherHead.setAttribute('class',"butcher");
+  butcherHead.setAttribute('position',track + " 2.7 -32");
+  butcherHead.setAttribute('rotation',"0 0 0");
+  butcherHead.setAttribute('color',"#DDDDDD");
+  butcherHead.setAttribute('material',"src: https://raw.githubusercontent.com/rafaelhss/life/master/cowBody2.png");
+  
+  butcherHead.setAttribute('radius',"0.5");
+  
+  butcherHead.setAttribute('shadow',"true");
+  
+  sceneEl.appendChild(butcherHead);
   
   
-  entityEl.setAttribute('shadow',"true");
-  entityEl.setAttribute('transparent',"true");
+  
+  var sceneEl = document.querySelector('a-scene');
+  var knife = document.createElement('a-cone');
+  
+  knife.setAttribute('class',"knife");
+  knife.setAttribute('position',track + " 1.9 -31.5");
+  knife.setAttribute('rotation',"0 0 0");
+  knife.setAttribute('color',"#DDDDDD");
+  knife.setAttribute('material',"src: https://raw.githubusercontent.com/rafaelhss/life/master/cowBody2.png");
+  
+  knife.setAttribute('height',"2");
+  knife.setAttribute('radius-top',"0.09");
+  knife.setAttribute('radius-bottom',"0.02");
+  knife.setAttribute('depth',"0.3");
+  knife.setAttribute('egments-radial',"3");
+  
+  
+  knife.setAttribute('shadow',"true");
+  knife.setAttribute('transparent',"true");
   
     
-  entityEl.setAttribute('animation',"property: position; to: 0 1.3 -30.5; dur: 600; easing: linear; repeat: indefinite; loop: true; dir: alternate");
-  entityEl.setAttribute('animation__2',"property: rotation; to: 70 30 0; dur: 600; easing: linear; repeat: indefinite; loop:true; dir: alternate");
+  knife.setAttribute('animation',"property: position; to: " + (track)+ " 1.5 -31; dur: 700; easing: linear; repeat: indefinite; loop: true; dir: alternate; delay:" + animalDelay);
+  knife.setAttribute('animation__2',"property: rotation; to: 70 30 0; dur: 700; easing: linear; repeat: indefinite; loop:true; dir: alternate; delay:" + animalDelay);
   
-  sceneEl.appendChild(entityEl);
-
+  sceneEl.appendChild(knife);
+  
 }
-addknife();
+
+addButcher(0);
+for (var i = 0, len = track.length; i < len; i++) {
+  addButcher(track[i]);
+}
+
+
+
 
 
 function addBlood(sceneEl, animalDelay, animaMinZ, chosenTrack ) {
@@ -88,10 +133,8 @@ function addBlood(sceneEl, animalDelay, animaMinZ, chosenTrack ) {
   }
 }
 
-var track = [-7, -3.5, 3.5, 7];
 setInterval(function createAnimal(){
   
-  var animalDelay = 8000;
   var animaMinZ = -30.8;
   
   var sceneEl = document.querySelector('a-scene');
