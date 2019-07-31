@@ -2,17 +2,12 @@
 
 var count = 0;
 var deathZLimit = -29;
-var track = [-7, -3.5, 3.5, 7];
+var track = [-10, -7, -3.5, 3.5, 7, 0];
 var animalDelay = 8000;
+var animaMinZ = -30.8;
   
   
 
-function walkElement(element, step){
-    var position = element.getAttribute("position");
-    position.z = position.z + step;
-    element.setAttribute('position', position);
-    console.log("Wakl: " + step)
-}
 
 function loop(){
 console.log("teteghbgggggge");
@@ -36,17 +31,82 @@ console.log("teteghbgggggge");
 }
 
 
+function addTrack(trackN){
+  
+  console.log("ssssssssssssssssssssss")
+  var sceneEl = document.querySelector('a-scene');
+
+  var track = document.createElement('a-plane');
+  track.setAttribute('class',"track");
+  track.setAttribute('position',trackN + " 0 0");
+  track.setAttribute('rotation',"-90 0 0");
+  track.setAttribute('color',"#333333");
+  track.setAttribute('width',"2");
+  track.setAttribute('height',"60");
+  track.setAttribute('shadow',"true");
+  track.setAttribute('material', "src: https://images.unsplash.com/photo-1551101674-0ac7887568cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80; repeat: 1 20")
+  sceneEl.appendChild(track);
+  
+  
+  var left = document.createElement('a-cylinder');
+  left.setAttribute('class',"track");
+  left.setAttribute('position', (trackN-0.7) + " 1 0");
+  left.setAttribute('rotation',"-90 0 0");
+  left.setAttribute('color',"#888888");
+  left.setAttribute('radius',"0.05");
+  left.setAttribute('height',"60");
+  left.setAttribute('shadow',"true");
+  left.setAttribute('material',"src: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYvAKE37StLCmylQcda8aCYeFfkIPPvQwjLFHpoUI7vdB6h5LA; repeat: 1 30");
+  sceneEl.appendChild(left);
+  
+  var right = document.createElement('a-cylinder');
+  right.setAttribute('class',"track");
+  right.setAttribute('position', (trackN+0.7) + " 1 0");
+  right.setAttribute('rotation',"-90 0 0");
+  right.setAttribute('color',"#888888");
+  right.setAttribute('radius',"0.05");
+  right.setAttribute('height',"60");
+  right.setAttribute('shadow',"true");
+  right.setAttribute('material',"src: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh939HUhaTjcQYa5Iov3iknS7YlilJoFajkrbdNY11IEbozM3k; repeat: 1 30");
+  sceneEl.appendChild(right);
+  
+  var left2 = document.createElement('a-cylinder');
+  left2.setAttribute('class',"track");
+  left2.setAttribute('position', (trackN-0.7) + " 0.75 0");
+  left2.setAttribute('rotation',"-90 0 0");
+  left2.setAttribute('color',"#888888");
+  left2.setAttribute('radius',"0.05");
+  left2.setAttribute('height',"60");
+  left2.setAttribute('shadow',"true");
+  left2.setAttribute('material',"src: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT06PETcp0LhZvbME8qDJq2-QcIMnhwayXQdb2spO4k_cOj5IN6pQ; repeat: 1 30");
+  sceneEl.appendChild(left2);
+  
+  var right2 = document.createElement('a-cylinder');
+  right2.setAttribute('class',"track");
+  right2.setAttribute('position', (trackN+0.7) + " 0.75 0");
+  right2.setAttribute('rotation',"-90 0 0");
+  right2.setAttribute('color',"#888888");
+  right2.setAttribute('radius',"0.05");
+  right2.setAttribute('height',"60");
+  right2.setAttribute('shadow',"true");
+  right2.setAttribute('material',"src: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYvAKE37StLCmylQcda8aCYeFfkIPPvQwjLFHpoUI7vdB6h5LA; repeat: 1 30");
+  sceneEl.appendChild(right2);
+  
+  
+}
+
+
+
 function addButcher(track){
       
-  console.log("addbucjefr")
   var sceneEl = document.querySelector('a-scene');
   var butcherBody = document.createElement('a-cone');
   
   butcherBody.setAttribute('class',"butcher");
   butcherBody.setAttribute('position',track + " 1.2 -32");
-  butcherBody.setAttribute('rotation',"0 0 0");
+  butcherBody.setAttribute('rotation',"0 180 0");
   butcherBody.setAttribute('color',"#DDDDDD");
-  butcherBody.setAttribute('material',"src: https://raw.githubusercontent.com/rafaelhss/life/master/cowBody2.png");
+  butcherBody.setAttribute('material',"src: https://raw.githubusercontent.com/rafaelhss/life/master/butcherBody.png");
   
   butcherBody.setAttribute('height',"2");
   butcherBody.setAttribute('radius-top',"0.2");
@@ -60,11 +120,11 @@ function addButcher(track){
   
   butcherHead.setAttribute('class',"butcher");
   butcherHead.setAttribute('position',track + " 2.7 -32");
-  butcherHead.setAttribute('rotation',"0 0 0");
-  butcherHead.setAttribute('color',"#DDDDDD");
-  butcherHead.setAttribute('material',"src: https://raw.githubusercontent.com/rafaelhss/life/master/cowBody2.png");
+  butcherHead.setAttribute('rotation',"0 270 0");
+  butcherHead.setAttribute('color',"#FFCCDD");
+  butcherHead.setAttribute('material',"src: https://raw.githubusercontent.com/rafaelhss/life/master/butcherHead.jpg");
   
-  butcherHead.setAttribute('radius',"0.5");
+  butcherHead.setAttribute('radius',"0.7");
   
   butcherHead.setAttribute('shadow',"true");
   
@@ -79,7 +139,7 @@ function addButcher(track){
   knife.setAttribute('position',track + " 1.9 -31.5");
   knife.setAttribute('rotation',"0 0 0");
   knife.setAttribute('color',"#DDDDDD");
-  knife.setAttribute('material',"src: https://raw.githubusercontent.com/rafaelhss/life/master/cowBody2.png");
+  knife.setAttribute('material',"src: https://raw.githubusercontent.com/rafaelhss/life/master/butcherKnife.png");
   
   knife.setAttribute('height',"2");
   knife.setAttribute('radius-top',"0.09");
@@ -99,16 +159,9 @@ function addButcher(track){
   
 }
 
-addButcher(0);
-for (var i = 0, len = track.length; i < len; i++) {
-  addButcher(track[i]);
-}
 
 
-
-
-
-function addBlood(sceneEl, animalDelay, animaMinZ, chosenTrack ) {
+function addBlood(sceneEl, chosenTrack ) {
   
   for(var i=0;i<60;i++){
     var blood = document.createElement('a-sphere');
@@ -133,9 +186,16 @@ function addBlood(sceneEl, animalDelay, animaMinZ, chosenTrack ) {
   }
 }
 
+
+for (var i = 0, len = track.length; i < len; i++) {
+  addButcher(track[i]);
+  addTrack(track[i]);
+}
+
+
 setInterval(function createAnimal(){
   
-  var animaMinZ = -30.8;
+  
   
   var sceneEl = document.querySelector('a-scene');
   var entityEl = document.createElement('a-box');
@@ -143,7 +203,7 @@ setInterval(function createAnimal(){
   entityEl.setAttribute('class',"animal");
   
   
-  var chosenTrack = track[Math.floor(Math.random() * track.length)];
+  var chosenTrack = track[Math.floor(Math.random() * (track.length-1))];
   entityEl.setAttribute('position',chosenTrack + " 0.5 0");
   
   
@@ -192,7 +252,7 @@ setInterval(function createAnimal(){
   
   
   
-  addBlood(sceneEl, animalDelay, animaMinZ, chosenTrack);
+  addBlood(sceneEl, chosenTrack);
   
   
   
