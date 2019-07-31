@@ -109,7 +109,7 @@ setInterval(function createAnimal(){
   
 },1000);
 
-
+/*
 setInterval(
 function knives(){
   var knives = document.getElementsByClassName("knife");
@@ -127,4 +127,4 @@ function knives(){
       
     });
 }
-, 600);
+, 600);*/
