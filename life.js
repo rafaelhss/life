@@ -28,21 +28,72 @@ console.log("teteghbgggggge");
       console.log(deathZLimit)
     }
   */
-    
-    
-
-  
-  
   
 }
 
 
-//setInterval(loop, 1000);
+function addknife(){
+      
+  var sceneEl = document.querySelector('a-scene');
+  var entityEl = document.createElement('a-cone');
+  
+  entityEl.setAttribute('class',"knife");
+  entityEl.setAttribute('position',"-0.5 1.9 -31.5");
+  entityEl.setAttribute('rotation',"0 0 0");
+  entityEl.setAttribute('color',"#DDDDDD");
+  entityEl.setAttribute('material',"src: https://raw.githubusercontent.com/rafaelhss/life/master/cowBody2.png");
+  
+  entityEl.setAttribute('height',"2");
+  entityEl.setAttribute('radius-top',"0.09");
+  entityEl.setAttribute('radius-bottom',"0.02");
+  entityEl.setAttribute('depth',"0.3");
+  entityEl.setAttribute('egments-radial',"3");
+  
+  
+  entityEl.setAttribute('shadow',"true");
+  entityEl.setAttribute('transparent',"true");
+  
+    
+  entityEl.setAttribute('animation',"property: position; to: 0 1.3 -30.5; dur: 600; easing: linear; repeat: indefinite; loop: true; dir: alternate");
+  entityEl.setAttribute('animation__2',"property: rotation; to: 70 30 0; dur: 600; easing: linear; repeat: indefinite; loop:true; dir: alternate");
+  
+  sceneEl.appendChild(entityEl);
+
+}
+addknife();
 
 
+function addBlood(sceneEl, animalDelay, animaMinZ, chosenTrack ) {
+  
+  for(var i=0;i<60;i++){
+    var blood = document.createElement('a-sphere');
+    blood.setAttribute('class',"animalblood");
+    blood.setAttribute('rotation',"0 90 0");
+    blood.setAttribute('color',"#FF0000");
+
+    var radius = (Math.floor(Math.random()*7)+2)/100;
+    blood.setAttribute('radius',radius);
+    blood.setAttribute('transparent',"true");
+    blood.setAttribute('opacity',"0.0");
+    blood.setAttribute('position', (chosenTrack + (Math.random()-0.5)) + " 1.3 " + animaMinZ);
+
+    var bloodUpY = (Math.random() * 3) + 1.5;
+    var bloodUpZ = (Math.random() * 7);
+    var positionTo = (chosenTrack + (Math.random()*2)) + " " + bloodUpY + " " + (animaMinZ- bloodUpZ);
+    blood.setAttribute('animation', "property: position; to: " + positionTo + "; dur: 1300; easing: linear; delay:"+ animalDelay +";");
+    blood.setAttribute('animation__2', "property: opacity; from: 1.0 to: 0.0; dur: 1200; delay: "+ (animalDelay) +";");
+
+
+    sceneEl.appendChild(blood);
+  }
+}
 
 var track = [-7, -3.5, 3.5, 7];
 setInterval(function createAnimal(){
+  
+  var animalDelay = 8000;
+  var animaMinZ = -30.8;
+  
   var sceneEl = document.querySelector('a-scene');
   var entityEl = document.createElement('a-box');
   
@@ -50,7 +101,6 @@ setInterval(function createAnimal(){
   
   
   var chosenTrack = track[Math.floor(Math.random() * track.length)];
-  console.log("chosenTrack: " + chosenTrack)
   entityEl.setAttribute('position',chosenTrack + " 0.5 0");
   
   
@@ -63,9 +113,9 @@ setInterval(function createAnimal(){
   
   entityEl.setAttribute('shadow',"true");
   entityEl.setAttribute('transparent',"true");
-  entityEl.setAttribute('animation',"property: position; to: " + chosenTrack + " 0.5 -30; dur: 8000; easing: linear;");
-  entityEl.setAttribute('animation__2', "property: opacity; from: 1.0 to: 0.0; dur: 2500; delay: 8500;");
-  entityEl.setAttribute('animation__3', "property: color; to: #FF0000; dur: 500; delay: 8000;");
+  entityEl.setAttribute('animation',"property: position; to: " + chosenTrack + " 0.5 -30; dur: "+ animalDelay +"; easing: linear;");
+  entityEl.setAttribute('animation__2', "property: opacity; from: 1.0 to: 0.0; dur: 2500; delay: "+ (animalDelay+500) +";");
+  entityEl.setAttribute('animation__3', "property: color; to: #FF0000; dur: 500; delay: "+ animalDelay +";");
   //entityEl.setAttribute('animation__4',"property: position; to: " + (chosenTrack + 1) + " 0.5 -30; dur: 1000; easing: linear; delay:8000");
   
   //entityEl.setAttribute("animation", "property: opacity; from: 1.0 to: 0.9; dur: 3000; easing: linear; startEvents: rotate");
@@ -84,26 +134,23 @@ setInterval(function createAnimal(){
   head.setAttribute('radius',"0.6");
   head.setAttribute('radius-top',"0.3");
   head.setAttribute('transparent',"true");
-  head.setAttribute('animation',"property: position; to: " + chosenTrack + " 1.5 -30.8; dur: 8000; easing: linear;");
-  head.setAttribute('animation__2', "property: color; to: #FF0000; dur: 500; delay: 8000;");
   
+  head.setAttribute('animation',"property: position; to: " + chosenTrack + " 1.5 -30.8; dur: "+ animalDelay +"; easing: linear;");
   
+  head.setAttribute('animation__2', "property: color; to: #FF0000; dur: 500; delay: "+ animalDelay +";");
   var headRoll = (Math.random() * 7);
-  var positionTo = (chosenTrack + (Math.random()*2)) + " 0 " + (-30.8 - headRoll);
+  var positionTo = (chosenTrack + (Math.random()*2)) + " 0 " + (animaMinZ - headRoll);
+  head.setAttribute('animation__3',"property: position; from: " + chosenTrack + " 0 -30.8; to: " + positionTo + "; dur: 1000; easing: linear; delay:"+ animalDelay +";");
   
-  head.setAttribute('animation__3',"property: position; from: " + chosenTrack + " 0 -30.8; to: " + positionTo + "; dur: 1000; easing: linear; delay:8000");
+  head.setAttribute('animation__4', "property: rotation; to: 360 820 0; dur: 5000; delay: "+ animalDelay +";");
   
-  head.setAttribute('animation__4', "property: rotation; to: 360 820 0; dur: 5000; delay: 8000;");
-  
-  
-
-  
-  //head.setAttribute('animation__4', "property: opacity; from: 1.0 to: 0.0; dur: 2500; delay: 10000;");
-  //
-  
-  //head.setAttribute('animation',"property: position; to: " + chosenTrack + " 0 -30.8; dur: 8000; easing: linear; delay: 8000;");
   
   sceneEl.appendChild(head);
+  
+  
+  
+  addBlood(sceneEl, animalDelay, animaMinZ, chosenTrack);
+  
   
   
   
