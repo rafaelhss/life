@@ -12,11 +12,15 @@
       <a-assets>
         <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
       preload></audio>
+                
+        <img id="fundo1" src="https://cdn.glitch.com/bccc21ff-9343-4776-a306-ca386c94f221%2FbutcherHead.jpg?v=1564604213883">
+        <img id="fundo2" src="https://cdn.glitch.com/bccc21ff-9343-4776-a306-ca386c94f221%2Fhead.jpg?v=1564604253725">
+        
       </a-assets>
 
      
-  <!--    <a-entity position="0 0 0" id="cursor" animation="property: position; to: 0 0 -30; dur: 30000; easing: linear;"> -->
-      <a-entity position="0 0 -27">
+      <a-entity position="0 0 0" id="cursor" animation="property: position; to: 0 0 -30; dur: 30000; easing: linear;">  
+      <!-- <a-entity position="0 0 -27"> -->
         <a-camera id="camera">
             <a-cursor fuse="true" fusetimeout="1000" color="#4CC3D9" >
                 <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.5 0.5 0.5" to="1 1 1"></a-animation>
@@ -24,26 +28,10 @@
             </a-cursor>
         </a-camera>
       </a-entity>
+      
+      <a-sky src="#fundo2" animation="property: src; to: 'https://cdn.glitch.com/bccc21ff-9343-4776-a306-ca386c94f221%2FbutcherHead.jpg'; delay:500; dur: 300; easing: linear;"></a-sky>
+      
 
-      <!-- 
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
--->
-      
-      <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"></a-sky>
-      
-      <a-box position="0 1.6 0" animation="property: position; to: 5 1.6 0; dur: 1500; easing: linear"></a-box>
-
-      
-      <a-plane position="-6 0 0" rotation="-90 0 0" width="2" height="60" color="#333333" shadow></a-plane>
-      <a-plane position="-3 0 0" rotation="-90 0 0" width="2" height="60" color="#333333" shadow></a-plane>
-      <a-plane position="0 0 0" rotation="-90 0 0" width="2" height="60" color="#333333" shadow></a-plane>
-      <a-plane position="3 0 0" rotation="-90 0 0" width="2" height="60" color="#333333" shadow></a-plane>
-      <a-plane position="6 0 0" rotation="-90 0 0" width="2" height="60" color="#333333" shadow></a-plane>
-      
-      
-      <!--<a-box class="animal" position="-3 0.5 -3" rotation="0 0 0" color="#4CC3D9" shadow transparent="true" animation="property: position; to: -3 0.5 -30; dur: 4500; easing: linear;"></a-box>
--->
       
       
             
