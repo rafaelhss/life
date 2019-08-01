@@ -7,28 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- import the webpage's stylesheet -->
-    <style>
-      html,body {
-  font-family: 'Raleway', sans-serif;
-  padding: 1em 2em;
-  font-size: 8px;
-  background: #222;
-  color: #aaa
-}
-
-h1,h2 {
-  font-weight: 200;
-  margin: 0.4em 0;
-}
-h1 { font-size: 3.5em; }
-h2 {
-  color: #888;
-  font-size: 2em;
-}
-    </style>
+    <link rel="stylesheet" href="/style.css">
     
     <!-- import the webpage's javascript file -->
-    <script src="/scriptEnd.js" defer></script>
+    <script src="/script.js" defer></script>
+    
+    <style>img {
+    max-width: 100%;
+    max-height: 100%;
+}
+</style>
   </head>  
   <body>
     <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
@@ -40,11 +28,12 @@ h2 {
     </h1>
     <h1>Vida de vaca também...</h1>
     
-    <span id="endimg"></span>
+    <div id="endimg"></div>  
+    
     <script>
     setTimeout(function(){ 
       var endimg = document.getElementById("endimg");
-      endimg.innerHTML = "<center> <img height=\"50%\" src=\"https://raw.githubusercontent.com/rafaelhss/life/master/end.jpg\"> </center>";
+      endimg.innerHTML = "<img src=\"https://raw.githubusercontent.com/rafaelhss/life/master/end.jpg\">";
     }, 12000);
     </script>
   </body>
