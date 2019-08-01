@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/styleEnd.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/scriptEnd.js" defer></script>
+  </head>  
+  <body>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+    <h1>Esse jogo 
+      <span
+         class="txt-rotate"
+         data-period="2000"
+         data-rotate='[ "não tem proxima fase.", "não tem saída.", "não tem graça.", "é injusto." ]'></span>
+    </h1>
+    <h1>Vida de vaca também...</h1>
+    
+    <span id="endimg"></span>
+    <script>
+    setTimeout(function(){ 
+      var endimg = document.getElementById("endimg");
+      endimg.innerHTML = "<center> <img height=\"50%\" src=\"https://raw.githubusercontent.com/rafaelhss/life/master/end.jpg\"> </center>";
+    }, 12000);
+    </script>
+  </body>
+</html>
