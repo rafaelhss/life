@@ -102,6 +102,10 @@
   background: #4CAF50;
   cursor: pointer;
 }
+      
+      #config {
+          text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+      }
     </style>
   </head>
   <body>
@@ -110,7 +114,7 @@
         <h1><img id="logo" src="https://raw.githubusercontent.com/rafaelhss/life/master/logo.png"></h1> 
       </div>
       <div id="setup">
-        
+        <h3 id="config">Configure seu personagem:</h3>
         <div class="slidecontainer">
           <input type="range" min="1" max="100" value="50" class="slider" id="str">
         </div>
@@ -121,7 +125,7 @@
           <span id="demoint"></span><input type="range" min="1" max="100" value="50" class="slider" id="int">
         </div>
         <div class="text-center mt-3">
-          <a href="game.html" class="btn btn-lg btn-primary">Começar Jogo</a>
+          <a href="https://lifegame3d.herokuapp.com/home.html" class="btn btn-lg btn-info" >Começar Jogo</a>
         </div>
       </div>
     </div>
