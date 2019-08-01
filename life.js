@@ -298,12 +298,13 @@ function doFinish(){
   knife.setAttribute('transparent',"true");
   
     
-  knife.setAttribute('animation',"property: position; to: 0 12 -31; dur: 4000; easing: linear; " );
-  knife.setAttribute('animation__2',"property: rotation; to: 70 30 0; dur: 4000; easing: linear; ");
+  knife.setAttribute('animation',"property: position; to: 0 12 -31; dur: 3500; easing: linear; " );
+  knife.setAttribute('animation__2',"property: rotation; to: 70 30 0; dur: 3500; easing: linear; ");
   
   sceneEl.appendChild(knife);
   
-  setTimeout(function(){ sky.setAttribute('color', "#FF3333"); }, 3500);
+  setTimeout(function(){ sky.setAttribute('color', "#FF3333"); }, 4000);
+  
   for(var i=0;i<1000;i++){
     var blood = document.createElement('a-sphere');
     blood.setAttribute('class',"animalblood thing");
@@ -322,7 +323,7 @@ function doFinish(){
     var positionTo = (Math.random()*20) + " " + bloodUpY + " " + (animaMinZ- bloodUpZ);
     
     var duration =  (Math.random() * 3000);
-    var delay = (Math.random() * 3000)+3500;
+    var delay = (Math.random() * 3000) + 4000;
     blood.setAttribute('animation', "property: position; to: " + positionTo + "; dur: "+ duration +"; easing: linear; delay:" + delay);
     blood.setAttribute('animation__2', "property: opacity; from: 1.0 to: 0.0; dur:  "+ duration +"; delay: " + delay);
    
