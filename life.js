@@ -2,7 +2,7 @@
 
 var count = 0;
 var deathZLimit = -29;
-var track = [-10, -7, -3.5, 3.5, 7, 0];
+var track = [-6, -4, -2, 2, 4, 0];
 var animalDelay = 8000;
 var animaMinZ = -30.8;
 var finish = false;  
@@ -33,6 +33,8 @@ console.log("teteghbgggggge");
 
 function addTrack(trackN){
   
+  var trackWidth = 2;
+  
   var sceneEl = document.querySelector('a-scene');
 
   var track = document.createElement('a-plane');
@@ -40,16 +42,17 @@ function addTrack(trackN){
   track.setAttribute('position',trackN + " -0.2 0");
   track.setAttribute('rotation',"-90 0 0");
   track.setAttribute('color',"#333333");
-  track.setAttribute('width',"2");
-  track.setAttribute('height',"60");
+  track.setAttribute('width',trackWidth);
+  track.setAttribute('height',"100");
   track.setAttribute('shadow',"true");
   track.setAttribute('material', "src: #floor; repeat: 1 20")
   sceneEl.appendChild(track);
   
+     
   
   var left = document.createElement('a-cylinder');
   left.setAttribute('class',"track thing");
-  left.setAttribute('position', (trackN-0.7) + " 1 0");
+  left.setAttribute('position', (trackN -(trackWidth/2)) + " 1 1");
   left.setAttribute('rotation',"-90 0 0");
   left.setAttribute('color',"#888888");
   left.setAttribute('radius',"0.05");
@@ -60,7 +63,7 @@ function addTrack(trackN){
   
   var right = document.createElement('a-cylinder');
   right.setAttribute('class',"track thing");
-  right.setAttribute('position', (trackN+0.7) + " 1 0");
+  right.setAttribute('position', (trackN + (trackWidth/2)) + " 1 1");
   right.setAttribute('rotation',"-90 0 0");
   right.setAttribute('color',"#888888");
   right.setAttribute('radius',"0.05");
@@ -71,7 +74,7 @@ function addTrack(trackN){
   
   var left2 = document.createElement('a-cylinder');
   left2.setAttribute('class',"track thing");
-  left2.setAttribute('position', (trackN-0.7) + " 0.75 0");
+  left2.setAttribute('position', (trackN- (trackWidth/2)) + " 0.75 1");
   left2.setAttribute('rotation',"-90 0 0");
   left2.setAttribute('color',"#888888");
   left2.setAttribute('radius',"0.05");
@@ -82,7 +85,7 @@ function addTrack(trackN){
   
   var right2 = document.createElement('a-cylinder');
   right2.setAttribute('class',"track thing");
-  right2.setAttribute('position', (trackN+0.7) + " 0.75 0");
+  right2.setAttribute('position', (trackN+(trackWidth/2)) + " 0.75 1");
   right2.setAttribute('rotation',"-90 0 0");
   right2.setAttribute('color',"#888888");
   right2.setAttribute('radius',"0.05");
@@ -240,10 +243,10 @@ setInterval(function createAnimal(){
 
     head.setAttribute('animation__2', "property: color; to: #FF0000; dur: 500; delay: "+ animalDelay +";");
     var headRoll = (Math.random() * 7);
-    var positionTo = (chosenTrack + (Math.random()*2)) + " 0 " + (animaMinZ - headRoll);
+    var positionTo = (chosenTrack + (Math.random()*2)) + " 0.3 " + (animaMinZ - headRoll);
     head.setAttribute('animation__3',"property: position; from: " + chosenTrack + " 0 -30.8; to: " + positionTo + "; dur: 1000; easing: linear; delay:"+ animalDelay +";");
 
-    head.setAttribute('animation__4', "property: rotation; to: 360 820 0; dur: 5000; delay: "+ animalDelay +";");
+    head.setAttribute('animation__4', "property: rotation; to: "+ (600 + Math.random()*180) +" 320 0; dur: 2000; delay: "+ animalDelay +";");
 
 
     sceneEl.appendChild(head);
@@ -301,7 +304,7 @@ function doFinish(){
   sceneEl.appendChild(knife);
   
   setTimeout(function(){ sky.setAttribute('color', "#FF3333"); }, 3500);
-  setTimeout(function(){   for(var i=0;i<1000;i++){
+  for(var i=0;i<1000;i++){
     var blood = document.createElement('a-sphere');
     blood.setAttribute('class',"animalblood thing");
     blood.setAttribute('rotation',"0 90 0");
@@ -310,20 +313,22 @@ function doFinish(){
     var radius = (Math.floor(Math.random()*7)+2)/100;
     blood.setAttribute('radius',radius);
     blood.setAttribute('transparent',"true");
+    
     blood.setAttribute('opacity',"0.0");
-    blood.setAttribute('position', (Math.random()-0.5) + " 0 -31");
+    blood.setAttribute('position', (Math.random()-0.8) + " 0 -31");
 
     var bloodUpY = (Math.random() * 20);
     var bloodUpZ = (Math.random() * 20);
     var positionTo = (Math.random()*20) + " " + bloodUpY + " " + (animaMinZ- bloodUpZ);
     
     var duration =  (Math.random() * 3000);
-    blood.setAttribute('animation', "property: position; to: " + positionTo + "; dur: "+ duration +"; easing: linear; delay:" + (Math.random() * 3000));
-    blood.setAttribute('animation__2', "property: opacity; from: 1.0 to: 0.0; dur:  "+ duration +"; delay: " + (Math.random() * 3000));
-
+    var delay = (Math.random() * 3000)+3500;
+    blood.setAttribute('animation', "property: position; to: " + positionTo + "; dur: "+ duration +"; easing: linear; delay:" + delay);
+    blood.setAttribute('animation__2', "property: opacity; from: 1.0 to: 0.0; dur:  "+ duration +"; delay: " + delay);
+   
 
     sceneEl.appendChild(blood);
-  } }, 3500);
+  }
    
   
 }
