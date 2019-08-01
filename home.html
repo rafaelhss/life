@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Vida de vaca</title>
+    
+    <style>
+      body {
+        background: url('https://raw.githubusercontent.com/rafaelhss/life/master/cowBody.png') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+      }
+      .jumbotron {
+        background-image: url("https://live.staticflickr.com/2284/3526895155_69fd415ccf.jpg");
+        background-size: cover;
+      }
+      .jumbotron img{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+      }
+      #logo {
+        width: 95%;
+      }
+      .slidecontainer {
+        width: 100%; /* Width of the outside container */
+      }
+      #setup{
+        /*background-color: lightblue;*/
+        width: 100%;
+        height: 200px;
+      }
+  .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 16px;
+      border-radius: 10px;   
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      background-image: linear-gradient(to right, yellow, red);
+    }
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 10%; 
+  border:0px solid black;
+  cursor: pointer;  
+}
+      #str::-webkit-slider-thumb{
+        background: url('https://raw.githubusercontent.com/rafaelhss/life/master/str.png');
+        background-size: contain;  
+        width: 50px;
+        height: 30px;
+      }
+      #int::-webkit-slider-thumb{
+        background: url('https://raw.githubusercontent.com/rafaelhss/life/master/int.png');
+        background-size: contain;  
+        width: 90px;
+        height: 30px;
+      }
+      #agl::-webkit-slider-thumb{
+        background: url('https://raw.githubusercontent.com/rafaelhss/life/master/agl.png');
+        background-size: contain;  
+        width: 70px;
+        height: 30px;
+      }
+      #str::-moz-range-thumb {
+        background: url('https://raw.githubusercontent.com/rafaelhss/life/master/str.png');
+        background-size: contain;      
+        width: 50px;
+        height: 30px;
+      }
+      #int::-moz-range-thumb {
+        background: url('https://raw.githubusercontent.com/rafaelhss/life/master/int.png');
+        width: 90px;
+        height: 30px;
+        background-size: contain;      
+      }
+      #agl::-moz-range-thumb {
+        background: url('https://raw.githubusercontent.com/rafaelhss/life/master/agl.png');
+        background-size: contain;      
+        width: 70px;
+        height: 30px;
+      }
+
+.slider::-moz-range-thumb {
+  width: 50px;
+  height: 25px;
+  border-radius: 90%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <h1><img id="logo" src="https://raw.githubusercontent.com/rafaelhss/life/master/logo.png"></h1> 
+      </div>
+      <div id="setup">
+        
+        <div class="slidecontainer">
+          <input type="range" min="1" max="100" value="50" class="slider" id="str">
+        </div>
+        <div class="slidecontainer">
+          <span id="demoagl"></span><input type="range" min="1" max="100" value="50" class="slider" id="agl">
+        </div>
+        <div class="slidecontainer">
+          <span id="demoint"></span><input type="range" min="1" max="100" value="50" class="slider" id="int">
+        </div>
+        <div class="text-center mt-3">
+          <a href="https://lifegame3d.herokuapp.com/home.html" class="btn btn-lg btn-primary">Começar Jogo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+    <script>
+      
+      
+      
+      var check = function() {
+        var str = document.getElementById("str");
+        var agl = document.getElementById("agl");
+        var int = document.getElementById("int");
+
+        var sum = (Number(str.value) + Number(agl.value) + Number(int.value));
+        var diff = 150 - sum;  
+        if (diff < 0){
+           if(this.id == "str"){
+             agl.value = Number(agl.value) + diff
+           }
+          if(this.id == "agl"){
+             int.value = Number(int.value) + diff
+           }
+          if(this.id == "int"){
+             str.value = Number(str.value) +diff
+           }
+        }
+      }
+
+      document.getElementById("str").oninput = check;
+      document.getElementById("agl").oninput = check;
+      document.getElementById("int").oninput = check;
+      
+    
+    </script>
+    
+  </body>
+</html>
