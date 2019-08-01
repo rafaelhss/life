@@ -33,12 +33,11 @@ console.log("teteghbgggggge");
 
 function addTrack(trackN){
   
-  console.log("ssssssssssssssssssssss")
   var sceneEl = document.querySelector('a-scene');
 
   var track = document.createElement('a-plane');
   track.setAttribute('class',"track thing");
-  track.setAttribute('position',trackN + " 0 0");
+  track.setAttribute('position',trackN + " -0.2 0");
   track.setAttribute('rotation',"-90 0 0");
   track.setAttribute('color',"#333333");
   track.setAttribute('width',"2");
